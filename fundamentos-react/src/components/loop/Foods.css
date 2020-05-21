@@ -1,0 +1,28 @@
+.TableFoods table {
+
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.TableFoods table,td,th {
+    border: 2px solid #fff;
+    padding: 5px;
+}
+
+td,th {
+    font-size: 1.0rem;
+    text-align: left;
+}
+
+.TableFoods th {
+    color: #fff;
+    background-color: #209b53;
+}
+
+.TableFoods .Pair {
+    background-color: #76ff64;
+}
+
+.TableFoods .Odd {
+    background-color: #b3fda9;
+}

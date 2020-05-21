@@ -1,0 +1,3 @@
+# Init mongodb
+$ mongod
+Adicionar o path /data/db na raiz com as permissões devidas WR.

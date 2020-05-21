@@ -1,0 +1,10 @@
+.ButtonMega button {
+
+    border: 2px solid #c71129;
+    background-color: #FF4C65;
+    color: #fff;
+    font-size: 1.0rem;
+    font-weight: 900;
+    border-radius: 30px;
+    padding: 10px;
+}
