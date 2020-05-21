@@ -30,13 +30,7 @@ class MegaNumber extends Component {
 
         const resultValue = parseInt(Math.random() * (this.state.numberMax - this.state.numberMin) + this.state.numberMin);
         
-        let includes = array.includes(resultValue);    
-        
-        if(!includes){
-            array[index] = resultValue;
-        } else {
-            this.getSequenceNumber(array, index);
-        }
+        !array.includes(resultValue) ? array[index] = resultValue : this.getSequenceNumber(array, index);
     }
 
     getGenerateSequenceNumber = () => {
