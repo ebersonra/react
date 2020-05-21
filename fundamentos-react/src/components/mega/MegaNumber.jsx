@@ -11,7 +11,7 @@ class MegaNumber extends Component {
         quantitySequence: this.props.quantitySequence || 6,
         array: [],
         numberMin: this.props.numberMin || 1,
-        numberMax: this.props.numberMax || 69,
+        numberMax: this.props.numberMax || 61,
     }
 
     setGeneraterArray = () => {
@@ -23,7 +23,7 @@ class MegaNumber extends Component {
             this.getSequenceNumber(array, index);
         }
 
-        return array;
+        return array.sort((n1, n2) => n1 - n2);
     };
 
     getSequenceNumber = (array, index) => {
@@ -45,7 +45,7 @@ class MegaNumber extends Component {
     };
 
     setArray = (newArray) => {
-        
+
         this.setState({
             array: newArray,
         });
@@ -72,7 +72,7 @@ class MegaNumber extends Component {
     render() {
         return (
             <div>
-                <h2>Number Mega</h2>
+                <h2>Numbers Mega</h2>
                 <DisplayMega array={this.state.array} quantitySequence={this.state.quantitySequence}/>
                 <FormMega quantitySequence={this.state.quantitySequence} 
                     setQuantitySequence={this.setQuantitySequence} 

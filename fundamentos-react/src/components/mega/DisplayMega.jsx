@@ -3,13 +3,6 @@ import './DisplayMega.css';
 import React from 'react';
 
 export default (props) => {
- 
-    props.array.map((number) => {
-
-        return ( 
-            <h3>{ number } </h3>
-        );
-    });
 
     const arraySecret = new Array(props.quantitySequence);
 
@@ -17,10 +10,29 @@ export default (props) => {
         arraySecret[index] = '?';
     }
 
+    const secrets = arraySecret.map((secret,i) => {
+
+        return (
+            <h2 key={i} className={i % 2 === 0 ? 'Pair' : 'Odd'}>
+                {secret}
+            </h2>
+        );
+    })
+
+    const numbers = props.array.map((number,i) => {
+
+        return (
+            <h2 key={i} className={i % 2 === 0 ? 'Pair' : 'Odd'}>
+                {number}
+            </h2>
+        );
+    })
+
+     
     return (
 
         <div className="DisplayMega">
-            <h2>{props.array.length === 0 ? arraySecret.join(" - ") : props.array.join(" - ") }</h2>
+            {props.array.length === 0 ? secrets : numbers }
         </div>
     )
 }
