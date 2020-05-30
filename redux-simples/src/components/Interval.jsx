@@ -4,23 +4,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Card from '../components/Card';
-import { updateMinimumNumber } from '../store/actions/actionNumbers';
+import { updateMinimumNumber, updateMaximumNumber } from '../store/actions/actionNumbers';
 
 function Interval(props) {
 
     const { minimum, maximum } = props.numbers;
-    props.updateMinimumValue(102000);
 
     return (
         <Card title="Number Range" red>
             <div className="Interval">
                 <span>
                     <strong>Minimum</strong>
-                    <input type="number" value={minimum} readOnly />
+                    <input type="number" value={minimum} 
+                        onChange={event => props.updateMinimumValue(+event.target.value)} />
                 </span>
                 <span>
                     <strong>Maximum</strong>
-                    <input type="number" value={maximum} readOnly />
+                    <input type="number" value={maximum} 
+                        onChange={event => props.updateMaximumValue(+event.target.value)} />
                 </span>
             </div>
         </Card>
@@ -33,19 +34,21 @@ function mapStateToProps(state) {
     }
 }
 
-function mapActionCreatorsToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return {
-        updateMinimumValue(newMinimum) {
-            // Action creator -> action
-            
+        updateMinimumValue(newMinimum) {  
             const actionNumber = updateMinimumNumber(newMinimum);
             dispatch(actionNumber); 
+        },
+        updateMaximumValue(newMaximum) {
+            const actionNumber = updateMaximumNumber(newMaximum);
+            dispatch(actionNumber);
         }
     }
 }
 
-//function multiAction(action) {
-//    return (dispatch) => action.map(a => dispatch(a));
+//function getCounterUpdate() {
+//    return parseInt(counterUpdate === 0 ? counterUpdate = 1 : counterUpdate = 0);
 //}
 
-export default connect(mapStateToProps, mapActionCreatorsToProps)(Interval);
+export default connect(mapStateToProps, mapDispatchToProps)(Interval);
