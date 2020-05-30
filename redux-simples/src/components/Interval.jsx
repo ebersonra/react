@@ -7,7 +7,6 @@ import Card from '../components/Card';
 import { updateMinimumNumber, updateMaximumNumber } from '../store/actions/actionNumbers';
 
 function Interval(props) {
-
     const { minimum, maximum } = props.numbers;
 
     return (
